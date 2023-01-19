@@ -1,0 +1,16 @@
+id,name,type,sector
+ECG,Ernesto Che Guevara,Person,Medizin
+FC,Fidel Castro,Person,Poltik
+FB,Fulgencio Batista,Person,Politik
+CP,Carlos Prío,Person,Politik
+HG,Hilda Gadea,Person,Politik
+NL,Ñico López,Person,Politik
+JA,Jacobo Árbenz,Person,Politik
+AB,Alberto Bayo,Person,Militär
+B26J,Bewegung des 26. Juli,Organisation,Widerstand
+GDC,Generación del Centenario,Organisation,Widerstand
+JRCV,Julio Roberto Caceres Valle,Person,Medien
+KR,Kubanische Regierung,Organisation,Politik
+GUA,Guatemala,Land,NA
+MEX,Mexiko,Land,NA
+GUAK,Guatemalekische Kommunisten,Organisation,Widerstand
