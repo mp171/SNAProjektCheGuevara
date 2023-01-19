@@ -1,0 +1,38 @@
+Codebuch
+
+Wir untersuchen das Gesamtnetzwerk der kubanischen Revolution. Das Ziel ist, nachvollziehen zu können, wie Menschen wie Che Guevara sich der kubanischen Revolution angeschlossen haben und wie die Revolutionäre in andere Länder verbunden waren.
+
+##Edgelist						
+						
+Mögliche Beziehungstypen:						
+						
+1 = Unterstützer
+2 = Anführer				
+3 = Liebesbeziehung			
+4 = Gegner				
+5 = Bekanntschaft						
+6 = Aufenthalt		
+						
+##Nodelist						
+												
+###Types					
+						
+Person
+Organisation 
+Land
+
+Im weiteren Verlauf der Arbeit werden die verschiedenen Typen ergänzt und anders visualisiert.
+						
+###Sectors	
+
+Militär						
+Politik						
+Widerstand 			
+Medien
+Medizin
+						
+Im weiteren Verlauf der Arbeit werden die verschiedenen Sektoren ergänzt und anders visualisiert.	
+						
+						
+						
+						
