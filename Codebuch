@@ -1,19 +1,29 @@
 Codebuch
 
-Wir untersuchen das Gesamtnetzwerk der kubanischen Revolution. Das Ziel ist, nachvollziehen zu können, wie Menschen wie Che Guevara sich der kubanischen Revolution angeschlossen haben und wie die Revolutionäre in andere Länder verbunden waren.
+Wir untersuchen das Gesamtnetzwerk der kubanischen Revolution. Unsere Forschungsfrage lautet:
+"Che Guevara war das Gesicht der kubanischen Revolution. 
+Welchen Platz nimmt er im Gesamtnetzwerk der Bewegung des 26. Juli ein und wie sind andere Länder und Gesellschaftssektoren involviert?"
 
-##Edgelist						
+##Edgelist
+
+Beziehungen sind nicht gewichtet und nicht gerichtet.
 						
-Mögliche Beziehungstypen:						
+Mögliche Beziehungstypen (über "relation" festgelegt):						
 						
 1 = Unterstützer
 2 = Anführer				
 3 = Liebesbeziehung			
 4 = Gegner				
 5 = Bekanntschaft						
-6 = Aufenthalt		
+6 = Aufenthalt
+7 = Familie
+
+Der Zeitpunkt der Beziehung wird in der Spalte "Year" festgelegt. Es wird festgehalten, in welchem Jahr eine Beziehung eingegangen wurde. Bei Änderung der Beziehung wird eine neue Kante definiert mit der neuen Beziehungsart und Beziehungszeitpunkt.
+Sollten Beziehungen vor Beginn unserer Datenerhebung eingegangen worden sein, wird dies nicht definiert. Sollten Beziehungen sich über den gesamten Erhegungszeitraum nicht verändern, wird dies ebenfalls nicht definiert und mit NA gekennzeichnet.
 						
-##Nodelist						
+##Nodelist
+
+Um fehlerhafte Anzeigen zu vermeiden, werden keine Sonderzeichen verwendet. Namen müssen somit ohne Akzente geschrieben werden. 
 												
 ###Types					
 						
