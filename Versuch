@@ -1,0 +1,131 @@
+id,name,type,sector
+ECG,Ernesto Che Guevara,Person,Medizin
+FB,Fulgencio Batista,Person,Politik
+HG,Hilda Gadea,Person,Politik
+AB,Alberto Bayo,Person,Militär
+B26J,Bewegung des 26. Juli,Organisation,Widerstand
+JRCV,Julio Roberto Caceres Valle,Person,Medien
+KR,Kubanische Regierung,Organisation,Politik
+GUA,Guatemala,Land,NA
+MEX,Mexiko,Land,NA
+GUAK,Guatemalekische Kommunisten,Organisation,Widerstand
+ABA,Abel Santamaría,Person,Widerstand
+ABS,Alberto Granado,Person,Widerstand
+AEB,Andres Eloy Blanco,Person,Politik
+AH,Armando Hart,Person,Widerstand
+AL,Almeida,Person,Militär
+AM,Aleida March,Person,Widerstand
+ANL,Antonio Ñico López,Person,Widerstand
+ATO,Arbentosa,Person,Widerstand
+AR,Armando Rodriguez,Person,Widerstand
+BE,Bentinez,Person,Widerstand
+C,Crescencio,Person,Widerstand
+CA,Casillas,Person,Militär
+CAT,Carlos Arturo Torres,Person,Politik
+CB,Ciro Bustos,Person,Medien
+CC,Camilo Cienfuegos,Person,Widerstand
+CCF,Carlos Calica Ferrer,Person,Widerstand
+CF,Ciro Frias,Person,Widerstand
+CFRA,Chichina Ferreyra,Person,Widerstand
+CFR,Carlos Franqui,Person,Widerstand
+CG,Calixto Garcia,Person,Widerstand
+CGF,"Carlos ""Calica"" Ferrer",Person,Widerstand
+CHA,Chao,Person,Widerstand
+CH,Chang,Person,Widerstand
+CIR,Ciro Redondo,Person,Widerstand
+CM,Calixto Morales,Person,Widerstand
+CO,Chicho Osorio,Person,Militär
+CP,Carlos Prio,Person,Politik
+CRP,Crespo,Person,Landwirtschaft
+CR,César Rodríguez,Person,Widerstand
+CS,Celia Sanchez,Person,Widerstand
+DA,Don Astolfo,Person,Landwirtschaft
+DHP,Dr. Hugo Pesce,Person,Medizin
+DLG,Dr. Lucio Garcia,Person,Medizin
+DR,Don Ramón,Person,Landwirtschaft
+DT,Díaz Tamayo,Person,Widerstand
+ECV,Echevarria,Person,Widerstand
+E,Emiliano,Person,Landwirtschaft
+EAJ,Efigenio Ameijeiras,Person,Militär
+ECOI,El Camionero,Person,NA
+ECO,El Comandante,Person,Militär
+EDI,Epifanio Díaz,Person,Widerstand
+EGR,Eutimio Guerra,Person,Landwirtschaft
+EGC,Enrique Gómez Carrillo,Person,Medien
+EGDO,El Gordo,Person,Widerstand
+EGDR,Eduardo García del Real,Person,Medien
+EGO,El Gaucho,Person,Widerstand
+ELB,Emilio Labrada,Person,Landwirtschaft
+EM,El Maestro,Person,Widerstand
+EMA,Elsa Martínez,Person,Medizin
+EMD,El Médico,Person,Medizin
+EMY,El Mayor,Person,Widerstand
+ENDS,El Niño del Sur,Person,NA
+ENGO,El Negro,Person,NA
+ENI,El Niño,Person,NA
+EOL,Enrique Oltuski,Person,Widerstand
+FAP,Faustino Pérez,Person,Widerstand
+FC,Fidel Castro,Person,Poltik
+FCL,"Francisco ""Chico"" López",Person,Widerstand
+FP,Faustino Perez,Person,Medizin
+FPI,Frank Pais,Person,Widerstand
+G,Gil,Person,Widerstand
+GDC,Generacion del Centenario,Organisation,Widerstand
+GG,Guillermo Garcia,Person,Militär
+GGF,Guillermo García Frías,Person,Widerstand
+GMI,Gustavo Machín,Person,Widerstand
+HGA,Héctor García,Person,Widerstand
+HL,Humberto Lamotte,Person,Widerstand
+HM,Herbert Matthews,Person,Medien
+HMA,Huber Matos,Person,Widerstand
+HS,Haydee Santamaria,Person,Widerstand
+IP,Ignacio Perez,Person,Widerstand
+IRZ,Israel Reyes Zayas,Person,Widerstand
+JA,Jacobo Arbenz,Person,Politik
+JAB,Juan Almeida Bosque,Person,Widerstand
+JD,Julito Diaz,Person,Widerstand
+JP,Javier Pazos,Person,Medien
+JRM,Jorge Ricardo Masetti ,Person,Medien
+JRMV,José Ramón Machado Ventura,Person,Politik
+JS,Jorge Sotus,Person,Widerstand
+JZA,Julio Zenon Acosta,Person,Landwirtschaft
+KUB,Kuba,Land,NA
+LC,Luis Crespo,Person,Widerstand
+LCD,Lázaro Cárdenas,Person,Politik
+LORO,Luis Orlando Rodríguez,Person,Widerstand
+M,Moran,Person,Widerstand
+MA,Manuel Acuna,Person,Widerstand
+MAP,Manuel Piñeiro,Person,Widerstand
+ME,Melquiades Elias,Person,Landwirtschaft
+MF,Manuel Fajardo,Person,Widerstand
+MH,Melba Hernández,Person,Widerstand
+MO,Motola,Person,Widerstand
+NL,Nico Lopez,Person,Politik
+OA,Oscar Alfaro,Person,Widerstand
+OFM,Oscar Fernández Mell,Person,Widerstand
+OFU,Orlando Fundora,Person,Widerstand
+P,Pesant,Person,Widerstand
+PF,Piti Fajardo,Person,Medizin
+PN,Pablo Neruda,Person,Politik
+RC,Raul Castro,Person,Widerstand
+RDI,Raúl Díaz,Person,Widerstand
+RM,Rolando Masferrer,Person,Militär
+RR,Ricardo Rojo,Person,Militär
+RRL,Rene Ramos Latour,Person,Militär
+RS,Raul Suarez,Person,Widerstand
+RV,Ramiro Valdes,Person,Militär
+S,Sotolongo,Person,Widerstand
+SAC,Sergio Acuna,Person,Widerstand
+SD,Silvia Durand,Person,Widerstand
+SM,Sanchez Mosquera,Person,Militär
+T,Theodoro Reich,Person,Medizin
+TA,Tamara Bunke,Person,Widerstand
+TI,Tita Infante,Person,NA
+US,Universo Sanchez,Person,Militär
+VC,Victorio Codovilla,Person,Medien
+VE,Vilma Espin,Person,Widerstand
+VV,Vittorio Vidali,Person,Militär
+WA,William Alexander Morgan,Person,Widerstand
+Y,Yayo,Person,Widerstand
+BOV,Bolivien,Land,NA
+CHI,Chile,Land,NA
