@@ -14,37 +14,36 @@ ABS,Alberto Granado,Person,Wissenschaft
 AEB,Andres Eloy Blanco,Person,Politik
 AH,Armando Hart,Person,Judikative
 AL,Almeida,Person,Militaer
-AM,Aleida March,Person,Widerstand
+AM,Aleida March,Person,Bildung
 ANL,Antonio Nico Lopez,Person,Politik
 AR,Armando Rodriguez,Person,Widerstand
-BE,Bentinez,Person,Widerstand
-C,Crescencio,Person,Widerstand
+C,Crescencio Perez,Person,Landwirtschaft
 CA,Casillas,Person,Militaer
 CAT,Carlos Arturo Torres,Person,Politik
 CB,Ciro Bustos,Person,Medien
-CC,Camilo Cienfuegos,Person,Widerstand
-CCF,Carlos Calica Ferrer,Person,Widerstand
-CF,Ciro Frias,Person,Widerstand
-CFRA,Chichina Ferreyra,Person,Widerstand
-CFR,Carlos Franqui,Person,Widerstand
+CC,Camilo Cienfuegos,Person,Handwerk
+CCF,Carlos Calica Ferrer,Person,Landwirtschaft
+CF,Ciro Frias,Person,Landwirtschaft
+CFRA,Maria Chichina Ferreyra,Person,Wissenschaft
+CFR,Carlos Franqui,Person,Medien
 CG,Calixto Garcia,Person,Widerstand
 CH,Chang,Person,Widerstand
 CIR,Ciro Redondo,Person,Widerstand
-CM,Calixto Morales,Person,Widerstand
+CM,Calixto Morales,Person,Bildung
 CO,Chicho Osorio,Person,Militaer
 CP,Carlos Prio,Person,Politik
 CR,Cesar Rodriguez,Person,Widerstand
-CS,Celia Sanchez,Person,Widerstand
+CS,Celia Sanchez,Person,Medizin
 DA,Don Astolfo,Person,Landwirtschaft
 DHP,Dr. Hugo Pesce,Person,Medizin
 DLG,Dr. Lucio Garcia,Person,Medizin
 DR,Don Ramon,Person,Landwirtschaft
-DT,Díaz Tamayo,Person,Widerstand
+DT,Martin Diaz Tamayo,Person,Militaer
 E,Emiliano,Person,Landwirtschaft
-ED,Epifanio Diaz,Person,Widerstand
+ED,Epifanio Diaz,Person,Landwirtschaft
 EL,Emilio Labrada,Person,Landwirtschaft
 EAJ,Efigenio Ameijeiras,Person,Militaer
-ECOI,El Camionero,Person,Land
+ECOI,El Camionero,Person,Widerstand
 ECO,El Comandante,Person,Militaer
 EGR,Eutimio Guerra,Person,Landwirtschaft
 EGC,Enrique Gomez Carrillo,Person,Medien
@@ -53,25 +52,25 @@ EGDR,Eduardo García del Real,Person,Medien
 EGO,El Gaucho,Person,Widerstand
 EM,El Maestro,Person,Widerstand
 EMY,El Mayor,Person,Widerstand
-EOL,Enrique Oltuski,Person,Widerstand
+EOL,Enrique Oltuski,Person,Architektur
 FAP,Faustino Pérez,Person,Widerstand
 FC,Fidel Castro,Person,Poltik
 FCL,Francisco Chico Lopez,Person,Widerstand
 FP,Faustino Perez,Person,Medizin
-FPI,Frank Pais,Person,Widerstand
+FPI,Frank Pais,Person,Bildung
 G,Gil,Person,Widerstand
 GDC,Generacion del Centenario,Organisation,Widerstand
 GG,Guillermo Garcia Frias,Person,Landwirtschaft
-GMI,Gustavo Machín,Person,Widerstand
-HGA,Hector Garcia,Person,Widerstand
-HL,Humberto Lamotte,Person,Widerstand
+GMI,Gustavo Machin,Person,Widerstand
+HGA,Hector Garcia,Person,Musik
+HL,Humberto Lamotte,Person,Militaer
 HM,Herbert Matthews,Person,Medien
-HMA,Huber Matos,Person,Widerstand
+HMA,Huber Matos Benitez,Person,Bildung
 HS,Haydee Santamaria,Person,Widerstand
-IP,Ignacio Perez,Person,Widerstand
+IP,Ignacio Perez,Person,Bildung
 IRZ,Israel Reyes Zayas,Person,Widerstand
 JA,Jacobo Arbenz,Person,Politik
-JAB,Juan Almeida Bosque,Person,Widerstand
+JAB,Juan Almeida Bosque,Person,Handwerk
 JD,Julito Diaz,Person,Widerstand
 JP,Javier Pazos,Person,Medien
 JRM,Jorge Ricardo Masetti,Person,Medien
@@ -80,39 +79,39 @@ JS,Jorge Sotus,Person,Widerstand
 JZA,Julio Zenon Acosta,Person,Landwirtschaft
 KUB,Kuba,Land,Land
 LC,Luis Crespo,Person,Widerstand
-LORO,Luis Orlando Rodríguez,Person,Widerstand
+LORO,Louis Orlando Rodriguez,Person,Medien
 M,Moran,Person,Widerstand
 MA,Manuel Acuna,Person,Widerstand
 MAP,Manuel Pineiro,Person,Widerstand
 ME,Melquiades Elias,Person,Landwirtschaft
-MF,Manuel Fajardo,Person,Widerstand
-MH,Melba Hernandez,Person,Widerstand
+MF,Manuel Fajardo,Person,Wirtschaft
+MH,Melba Hernandez,Person,Judikative
 MO,Motola,Person,Widerstand
-OA,Oscar Alfaro,Person,Widerstand
-OFM,Oscar Fernandez Mell,Person,Widerstand
-OFU,Orlando Fundora,Person,Widerstand
+OA,Oscar Alfaro,Person,Medien
+OFM,Oscar Fernandez Mell,Person,Medizin
+OFU,Orlando Fundora,Person,Wirtschaft
 P,Pesant,Person,Widerstand
 PF,Piti Fajardo,Person,Medizin
 PN,Pablo Neruda,Person,Politik
 RC,Raul Castro,Person,Widerstand
-RD,Raul Diaz,Person,Widerstand
+RD,Raul Diaz,Person,Militaer
 RM,Rolando Masferrer,Person,Militaer
-RR,Ricardo Rojo,Person,Militaer
+RR,Ricardo Rojo,Person,Judikative
 RRL,Rene Ramos Latour,Person,Militaer
-RS,Raul Suarez,Person,Widerstand
+RS,Raul Suarez,Person,Kirche
 RV,Ramiro Valdes,Person,Militaer
 S,Sotolongo,Person,Widerstand
 SA,Sergio Acuna,Person,Widerstand
 SD,Silvia Durand,Person,Widerstand
 SM,Sanchez Mosquera,Person,Militaer
 T,Theodoro Reich,Person,Medizin
-TA,Tamara Bunke,Person,Widerstand
-TI,Tita Infante,Person,Widerstand
+TA,Tamara Bunke,Person,Politik
+TI,Tita Infante,Person,Medizin
 US,Universo Sanchez,Person,Militaer
 VC,Victorio Codovilla,Person,Medien
-VE,Vilma Espin,Person,Widerstand
+VE,Vilma Espin,Person,Wissenschaft
 VV,Vittorio Vidali,Person,Militaer
-WA,William Alexander Morgan,Person,Widerstand
+WA,William Alexander Morgan,Person,Militaer
 Y,Yayo,Person,Widerstand
 BOV,Bolivien,Land,Land
 CHI,Chile,Land,Land
