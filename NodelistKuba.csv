@@ -6,8 +6,8 @@ AB,Alberto Bayo,Person,Militaer
 B26J,Bewegung des 26. Juli,Organisation,Widerstand
 JRCV,Julio Roberto Caceres Valle,Person,Medien
 KR,Kubanische Regierung,Organisation,Politik
-GUA,Guatemala,Land,NA
-MEX,Mexiko,Land,NA
+GUA,Guatemala,Land,Land
+MEX,Mexiko,Land,Land
 GUAK,Guatemalekische Kommunisten,Organisation,Widerstand
 ABA,Abel Santamaria,Person,Widerstand
 ABS,Alberto Granado,Person,Widerstand
@@ -45,7 +45,7 @@ E,Emiliano,Person,Landwirtschaft
 ED,Epifanio Diaz,Person,Widerstand
 EL,Emilio Labrada,Person,Landwirtschaft
 EAJ,Efigenio Ameijeiras,Person,Militaer
-ECOI,El Camionero,Person,NA
+ECOI,El Camionero,Person,Land
 ECO,El Comandante,Person,Militaer
 EGR,Eutimio Guerra,Person,Landwirtschaft
 EGC,Enrique Gómez Carrillo,Person,Medien
@@ -80,7 +80,7 @@ JRM,Jorge Ricardo Masetti,Person,Medien
 JRMV,José Ramón Machado Ventura,Person,Politik
 JS,Jorge Sotus,Person,Widerstand
 JZA,Julio Zenon Acosta,Person,Landwirtschaft
-KUB,Kuba,Land,NA
+KUB,Kuba,Land,Land
 LC,Luis Crespo,Person,Widerstand
 LORO,Luis Orlando Rodríguez,Person,Widerstand
 M,Moran,Person,Widerstand
@@ -110,12 +110,12 @@ SD,Silvia Durand,Person,Widerstand
 SM,Sanchez Mosquera,Person,Militaer
 T,Theodoro Reich,Person,Medizin
 TA,Tamara Bunke,Person,Widerstand
-TI,Tita Infante,Person,NA
+TI,Tita Infante,Person,Widerstand
 US,Universo Sanchez,Person,Militaer
 VC,Victorio Codovilla,Person,Medien
 VE,Vilma Espin,Person,Widerstand
 VV,Vittorio Vidali,Person,Militaer
 WA,William Alexander Morgan,Person,Widerstand
 Y,Yayo,Person,Widerstand
-BOV,Bolivien,Land,NA
-CHI,Chile,Land,NA
+BOV,Bolivien,Land,Land
+CHI,Chile,Land,Land
