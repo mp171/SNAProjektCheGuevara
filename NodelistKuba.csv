@@ -38,7 +38,7 @@ CS,Celia Sanchez,Person,Widerstand
 DA,Don Astolfo,Person,Landwirtschaft
 DHP,Dr. Hugo Pesce,Person,Medizin
 DLG,Dr. Lucio Garcia,Person,Medizin
-DR,Don Ramón,Person,Landwirtschaft
+DR,Don Ramon,Person,Landwirtschaft
 DT,Díaz Tamayo,Person,Widerstand
 E,Emiliano,Person,Landwirtschaft
 ED,Epifanio Diaz,Person,Widerstand
@@ -47,7 +47,7 @@ EAJ,Efigenio Ameijeiras,Person,Militaer
 ECOI,El Camionero,Person,Land
 ECO,El Comandante,Person,Militaer
 EGR,Eutimio Guerra,Person,Landwirtschaft
-EGC,Enrique Gómez Carrillo,Person,Medien
+EGC,Enrique Gomez Carrillo,Person,Medien
 EGDO,El Gordo,Person,Widerstand
 EGDR,Eduardo García del Real,Person,Medien
 EGO,El Gaucho,Person,Widerstand
@@ -56,14 +56,14 @@ EMY,El Mayor,Person,Widerstand
 EOL,Enrique Oltuski,Person,Widerstand
 FAP,Faustino Pérez,Person,Widerstand
 FC,Fidel Castro,Person,Poltik
-FCL,"Francisco ""Chico"" López",Person,Widerstand
+FCL,Francisco Chico Lopez,Person,Widerstand
 FP,Faustino Perez,Person,Medizin
 FPI,Frank Pais,Person,Widerstand
 G,Gil,Person,Widerstand
 GDC,Generacion del Centenario,Organisation,Widerstand
 GG,Guillermo Garcia Frias,Person,Landwirtschaft
 GMI,Gustavo Machín,Person,Widerstand
-HGA,Héctor García,Person,Widerstand
+HGA,Hector Garcia,Person,Widerstand
 HL,Humberto Lamotte,Person,Widerstand
 HM,Herbert Matthews,Person,Medien
 HMA,Huber Matos,Person,Widerstand
@@ -75,7 +75,7 @@ JAB,Juan Almeida Bosque,Person,Widerstand
 JD,Julito Diaz,Person,Widerstand
 JP,Javier Pazos,Person,Medien
 JRM,Jorge Ricardo Masetti,Person,Medien
-JRMV,José Ramón Machado Ventura,Person,Politik
+JRMV,Jose Ramon Machado Ventura,Person,Politik
 JS,Jorge Sotus,Person,Widerstand
 JZA,Julio Zenon Acosta,Person,Landwirtschaft
 KUB,Kuba,Land,Land
@@ -83,13 +83,13 @@ LC,Luis Crespo,Person,Widerstand
 LORO,Luis Orlando Rodríguez,Person,Widerstand
 M,Moran,Person,Widerstand
 MA,Manuel Acuna,Person,Widerstand
-MAP,Manuel Piñeiro,Person,Widerstand
+MAP,Manuel Pineiro,Person,Widerstand
 ME,Melquiades Elias,Person,Landwirtschaft
 MF,Manuel Fajardo,Person,Widerstand
-MH,Melba Hernández,Person,Widerstand
+MH,Melba Hernandez,Person,Widerstand
 MO,Motola,Person,Widerstand
 OA,Oscar Alfaro,Person,Widerstand
-OFM,Oscar Fernández Mell,Person,Widerstand
+OFM,Oscar Fernandez Mell,Person,Widerstand
 OFU,Orlando Fundora,Person,Widerstand
 P,Pesant,Person,Widerstand
 PF,Piti Fajardo,Person,Medizin
