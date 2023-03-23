@@ -1,0 +1,221 @@
+---
+title: "Che Guava"
+author: "Maria Petalidou, Franziska Weber, Lisa Conzelmann"
+date: "19 Januar 2023"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+Codebuch
+
+Wir untersuchen das Gesamtnetzwerk der kubanischen Revolution. Unsere Forschungsfrage lautet:
+"Che Guevara war das Gesicht der kubanischen Revolution. 
+Welchen Platz nimmt er im Gesamtnetzwerk der Bewegung des 26. Juli ein und wie sind andere Länder und Gesellschaftssektoren involviert?"
+
+##Edgelist
+
+Beziehungen sind nicht gewichtet und nicht gerichtet.
+						
+Mögliche Beziehungstypen (über "relation" festgelegt):						
+						
+1 = Unterstützer
+2 = Anführer				
+3 = Liebesbeziehung			
+4 = Gegner				
+5 = Bekanntschaft						
+6 = Aufenthalt
+7 = Familie
+
+Der Zeitpunkt der Beziehung wird in der Spalte "Year" festgelegt. Es wird festgehalten, in welchem Jahr eine Beziehung eingegangen wurde. Bei Änderung der Beziehung wird eine neue Kante definiert mit der neuen Beziehungsart und Beziehungszeitpunkt.
+Sollten Beziehungen vor Beginn unserer Datenerhebung eingegangen worden sein, wird dies nicht definiert. Sollten Beziehungen sich über den gesamten Erhegungszeitraum nicht verändern, wird dies ebenfalls nicht definiert und mit NA gekennzeichnet.
+						
+##Nodelist
+
+Um fehlerhafte Anzeigen zu vermeiden, werden keine Sonderzeichen verwendet. Namen müssen somit ohne Akzente geschrieben werden. 
+												
+###Types					
+						
+Person
+Organisation 
+Land
+
+Im weiteren Verlauf der Arbeit werden die verschiedenen Typen ergänzt und anders visualisiert.
+						
+###Sectors	
+
+Militär						
+Politik						
+Widerstand 			
+Medien
+Medizin
+						
+Im weiteren Verlauf der Arbeit werden die verschiedenen Sektoren ergänzt und anders visualisiert.	
+						
+##Projektmanagement
+
+Wir arebiten mit der Vorlage für einen Projekt-Backlog von Lars Rinsdorf. Der Link zum Projektlog ist hier: https://docs.google.com/spreadsheets/d/1aVolX0rD4p-sPcQ3oNIEUTo5ZA23BJFK/edit?usp=sharing&ouid=103775396014785397767&rtpof=true&sd=true
+						
+
+## Netzwerk einlesen
+
+```{r Netzwerk einlesen}
+# Programmbibliothek laden
+library(igraph)
+
+# Einlesen der Edge- und Nodelist
+edges <- read.csv("https://raw.githubusercontent.com/mp171/SNAProjektCheGuevara/main/EdgelistKuba.csv", header=T, as.is=T, sep = ",")
+
+nodes <- read.csv("https://raw.githubusercontent.com/mp171/SNAProjektCheGuevara/main/NodelistKuba.csv", header=T, as.is=T, sep = ",")
+
+# Matrix erstellen
+edgematrix <-as.matrix(edges)
+
+# Zusammenfuehren von Edge- und Nodelist
+kubarevolution <- graph_from_data_frame(d=edgematrix, vertices=nodes, directed=T)
+
+```
+
+## Datensatz vorbereiten
+
+```{r Einfache Visualisierung des Netzwerks, fig.height=5, fig.width=9}
+
+# Farben festlegen
+
+
+
+
+plot(kubarevolution,
+     asp=0,
+     layout=layout_with_kk,
+     rescale=TRUE,
+     vertex.frame.color="black",
+     edge.color="black",
+     edge.arrow.size=.5,
+     main="Kubanische Revolution Gesamtnetzwerk")
+
+
+```
+
+
+## Teilnetzwerk
+
+```{r Teilnetzwerk Familie}
+
+Familie <- subgraph.edges(kubarevolution, E(kubarevolution)[relation==7])
+
+plot(Familie,
+     asp=0,
+     layout=layout_with_kk,
+     rescale=TRUE,
+     vertex.size=degree(Familie)*3,
+     vertex.frame.color="black",
+     edge.color="black",
+     edge.arrow.size=.5,
+     main="Teilnetzwerk Familie")
+```
+
+```{r Teilnetzwerk Liebe}
+
+Love <- subgraph.edges(kubarevolution, E(kubarevolution)[relation==3])
+
+plot(Love,
+     asp=0,
+     layout=layout_with_kk,
+     rescale=TRUE,
+     vertex.size=degree(Love)*3,
+     vertex.frame.color="black",
+     edge.color="black",
+     edge.arrow.size=.5,
+     main="Teilnetzwerk Liebesbeziehungen")
+```
+```{r Teilnetzwerk 1953}
+
+Dreifunf <- subgraph.edges(kubarevolution, E(kubarevolution)[year=="1953"])
+
+
+plot(Dreifunf,
+     asp=0,
+     layout=layout_with_kk,
+     rescale=TRUE,
+     vertex.size=degree(Dreifunf)*3,
+     vertex.frame.color="black",
+     edge.color="black",
+     edge.arrow.size=.5,
+     main="Teilnetzwerk 1953")
+
+
+```
+
+```{r Teilnetzwerk 1952}
+
+Zweifunf <- subgraph.edges(kubarevolution, E(kubarevolution)[year=="1952"])
+
+
+plot(Zweifunf,
+     asp=0,
+     layout=layout_with_kk,
+     rescale=TRUE,
+     vertex.size=degree(Zweifunf)*3,
+     vertex.frame.color="black",
+     edge.color="black",
+     edge.arrow.size=.5,
+     main="Teilnetzwerk 1952")
+
+
+```
+```{r Ego-Netzwerk Bolivien}
+
+network_bov <- make_ego_graph(kubarevolution, order = 1, nodes = V(kubarevolution)$name=="Bolivien", mode="all")
+
+network_bov
+
+network_bov_1 <- network_bov[[1]]
+
+plot(network_bov_1, 
+     main="Ego-Netzwerk Bolivien, erster Grad",
+     vertex.color="deeppink",
+     edge.color="black",
+     edge.arrow.size=.3,
+     sub="Wer war in Bolivien?")
+
+
+```
+
+```{r Ego-Netzwerk Chile}
+
+network_chi <- make_ego_graph(kubarevolution, order = 1, nodes = V(kubarevolution)$name=="Chile", mode="all")
+
+network_chi
+
+network_chi_1 <- network_chi[[1]]
+
+plot(network_chi_1, 
+     main="Ego-Netzwerk Chile, erster Grad",
+     vertex.color="gold",
+     edge.color="black",
+     edge.arrow.size=.3,
+     sub="Wer war in Chile?")
+
+
+```
+
+```{r Ego-Netzwerk Guatemala}
+
+network_gua <- make_ego_graph(kubarevolution, order = 1, nodes = V(kubarevolution)$name=="Guatemala", mode="all")
+
+network_gua
+
+network_gua_1 <- network_gua[[1]]
+
+plot(network_gua_1, 
+     main="Ego-Netzwerk Guatemala, erster Grad",
+     vertex.color="gold",
+     edge.color="black",
+     edge.arrow.size=.3,
+     sub="Wer war in Guatemala?")
+
+
+```
