@@ -30,7 +30,7 @@ Mögliche Beziehungstypen (über "relation" festgelegt):
 7 = Familie
 
 Der Zeitpunkt der Beziehung wird in der Spalte "Year" festgelegt. Es wird festgehalten, in welchem Jahr eine Beziehung eingegangen wurde. Bei Änderung der Beziehung wird eine neue Kante definiert mit der neuen Beziehungsart und Beziehungszeitpunkt.
-Sollten Beziehungen vor Beginn unserer Datenerhebung eingegangen worden sein, wird dies nicht definiert. Sollten Beziehungen sich über den gesamten Erhegungszeitraum nicht verändern, wird dies ebenfalls nicht definiert und mit NA gekennzeichnet.
+Sollten Beziehungen vor Beginn unserer Datenerhebung eingegangen worden sein, wird dies nicht definiert. Sollten Beziehungen sich über den gesamten Erhegungszeitraum nicht verändern, wird dies ebenfalls nicht definiert und mit 0 gekennzeichnet.
 						
 ##Nodelist
 
@@ -42,7 +42,7 @@ Person
 Organisation 
 Land
 
-Im weiteren Verlauf der Arbeit werden die verschiedenen Typen ergänzt und anders visualisiert.
+Es gibt drei verschiedene Arten von Knoten, die mit "types" unterschieden werden: Personen, Organisationen oder Länder.
 						
 ###Sectors	
 
@@ -51,12 +51,23 @@ Politik
 Widerstand 			
 Medien
 Medizin
+Wissenschaft
+Judikative
+Bildung
+Handwerk
+Architektur
+Musik
+Wirtschaft
+Kirche
+Landwirtschaft
+
+Knoten werden in verschiedene Teile der Gesellschaft geteilt, die in der Spalte "sectors" festgelegt werden. Bei Personen und Organisationen werden 14 verschiedene Sektoren unterschieden, die oben aufgelistet sind. Bei Personen werden Arbeitsverhältnisse oder Ausbildung vor dem Anschluss zum Widerstand notiert. Wenn das nicht bekannt ist, wird die Person dem Sektor Widerstand zugeordnet.   
+Bei Ländern wird der Sektor als Land notiert.
 						
-Im weiteren Verlauf der Arbeit werden die verschiedenen Sektoren ergänzt und anders visualisiert.	
 						
 ##Projektmanagement
 
-Wir arebiten mit der Vorlage für einen Projekt-Backlog von Lars Rinsdorf. Der Link zum Projektlog ist hier: https://docs.google.com/spreadsheets/d/1aVolX0rD4p-sPcQ3oNIEUTo5ZA23BJFK/edit?usp=sharing&ouid=103775396014785397767&rtpof=true&sd=true
+Wir arbeiten mit der Vorlage für einen Projekt-Backlog von Lars Rinsdorf. Der Link zum Projektlog ist hier: https://docs.google.com/spreadsheets/d/1aVolX0rD4p-sPcQ3oNIEUTo5ZA23BJFK/edit?usp=sharing&ouid=103775396014785397767&rtpof=true&sd=true
 						
 
 ## Netzwerk einlesen
@@ -84,7 +95,30 @@ kubarevolution <- graph_from_data_frame(d=edgematrix, vertices=nodes, directed=T
 
 # Farben festlegen
 
+V(kubarevolution)[V(kubarevolution)$sector == "Militaer"]$color <- "firebrick3"
+V(kubarevolution)[V(kubarevolution)$sector == "Politik"]$color <- "deepskyblue"
+V(kubarevolution)[V(kubarevolution)$sector == "Widerstand"]$color <- "indianred1"
+V(kubarevolution)[V(kubarevolution)$sector == "Medien"]$color <- "gold"
+V(kubarevolution)[V(kubarevolution)$sector == "Medizin"]$color <- "azure"
+V(kubarevolution)[V(kubarevolution)$sector == "Wissenschaft"]$color <- "chartreuse3"
+V(kubarevolution)[V(kubarevolution)$sector == "Judikative"]$color <- "darkgoldenrod1"
+V(kubarevolution)[V(kubarevolution)$sector == "Bildung"]$color <- "lightpink1"
+V(kubarevolution)[V(kubarevolution)$sector == "Handwerk"]$color <- "lightsteelblue4"
+V(kubarevolution)[V(kubarevolution)$sector == "Architektur"]$color <- "navajowhite"
+V(kubarevolution)[V(kubarevolution)$sector == "Musik"]$color <- "deeppink"
+V(kubarevolution)[V(kubarevolution)$sector == "Kirche"]$color <- "darkolivegreen"
+V(kubarevolution)[V(kubarevolution)$sector == "Wirtschaft"]$color <- "mediumorchid3"
+V(kubarevolution)[V(kubarevolution)$sector == "Land"]$color <- "orange"
+V(kubarevolution)[V(kubarevolution)$sector == "Landwirtschaft"]$color <- "green"
 
+
+E(kubarevolution)[E(kubarevolution)$relation == 1]$color <-"darkorange"
+E(kubarevolution)[E(kubarevolution)$relation == 2]$color <-"red"
+E(kubarevolution)[E(kubarevolution)$relation == 3]$color <-"blue"
+E(kubarevolution)[E(kubarevolution)$relation == 4]$color <-"brown"
+E(kubarevolution)[E(kubarevolution)$relation == 5]$color <-"chocolate"
+E(kubarevolution)[E(kubarevolution)$relation == 6]$color <-"darkorchid"
+E(kubarevolution)[E(kubarevolution)$relation == 7]$color <-"darkslategray"
 
 
 plot(kubarevolution,
@@ -92,13 +126,11 @@ plot(kubarevolution,
      layout=layout_with_kk,
      rescale=TRUE,
      vertex.frame.color="black",
-     edge.color="black",
      edge.arrow.size=.5,
      main="Kubanische Revolution Gesamtnetzwerk")
 
 
 ```
-
 
 ## Teilnetzwerk
 
@@ -110,9 +142,7 @@ plot(Familie,
      asp=0,
      layout=layout_with_kk,
      rescale=TRUE,
-     vertex.size=degree(Familie)*3,
      vertex.frame.color="black",
-     edge.color="black",
      edge.arrow.size=.5,
      main="Teilnetzwerk Familie")
 ```
@@ -125,28 +155,9 @@ plot(Love,
      asp=0,
      layout=layout_with_kk,
      rescale=TRUE,
-     vertex.size=degree(Love)*3,
      vertex.frame.color="black",
-     edge.color="black",
      edge.arrow.size=.5,
      main="Teilnetzwerk Liebesbeziehungen")
-```
-```{r Teilnetzwerk 1953}
-
-Dreifunf <- subgraph.edges(kubarevolution, E(kubarevolution)[year=="1953"])
-
-
-plot(Dreifunf,
-     asp=0,
-     layout=layout_with_kk,
-     rescale=TRUE,
-     vertex.size=degree(Dreifunf)*3,
-     vertex.frame.color="black",
-     edge.color="black",
-     edge.arrow.size=.5,
-     main="Teilnetzwerk 1953")
-
-
 ```
 
 ```{r Teilnetzwerk 1952}
@@ -158,14 +169,125 @@ plot(Zweifunf,
      asp=0,
      layout=layout_with_kk,
      rescale=TRUE,
-     vertex.size=degree(Zweifunf)*3,
      vertex.frame.color="black",
-     edge.color="black",
      edge.arrow.size=.5,
      main="Teilnetzwerk 1952")
 
 
 ```
+
+```{r Teilnetzwerk 1953}
+
+Dreifunf <- subgraph.edges(kubarevolution, E(kubarevolution)[year=="1953"])
+
+
+plot(Dreifunf,
+     asp=0,
+     layout=layout_with_kk,
+     rescale=TRUE,
+     vertex.frame.color="black",
+     edge.arrow.size=.5,
+     main="Teilnetzwerk 1953")
+
+
+```
+
+```{r Teilnetzwerk 1954}
+
+Vierfunf <- subgraph.edges(kubarevolution, E(kubarevolution)[year=="1954"])
+
+
+plot(Vierfunf,
+     asp=0,
+     layout=layout_with_kk,
+     rescale=TRUE,
+     vertex.frame.color="black",
+     edge.arrow.size=.5,
+     main="Teilnetzwerk 1954")
+
+
+```
+
+```{r Teilnetzwerk 1955}
+
+Funffunf <- subgraph.edges(kubarevolution, E(kubarevolution)[year=="1955"])
+
+
+plot(Funffunf,
+     asp=0,
+     layout=layout_with_kk,
+     rescale=TRUE,
+     vertex.frame.color="black",
+     edge.arrow.size=.5,
+     main="Teilnetzwerk 1955")
+
+
+```
+
+```{r Teilnetzwerk 1956}
+
+Sechsfunf <- subgraph.edges(kubarevolution, E(kubarevolution)[year=="1956"])
+
+
+plot(Sechsfunf,
+     asp=0,
+     layout=layout_with_kk,
+     rescale=TRUE,
+     vertex.frame.color="black",
+     edge.arrow.size=.5,
+     main="Teilnetzwerk 1956")
+
+
+```
+
+```{r Teilnetzwerk 1957}
+
+Siebenfunf <- subgraph.edges(kubarevolution, E(kubarevolution)[year=="1957"])
+
+
+plot(Siebenfunf,
+     asp=0,
+     layout=layout_with_kk,
+     rescale=TRUE,
+     vertex.frame.color="black",
+     edge.arrow.size=.5,
+     main="Teilnetzwerk 1957")
+
+
+```
+
+```{r Teilnetzwerk 1958}
+
+Achtfunf <- subgraph.edges(kubarevolution, E(kubarevolution)[year=="1958"])
+
+
+plot(Achtfunf,
+     asp=0,
+     layout=layout_with_kk,
+     rescale=TRUE,
+     vertex.frame.color="black",
+     edge.arrow.size=.5,
+     main="Teilnetzwerk 1958")
+
+
+```
+
+```{r Teilnetzwerk 1959}
+
+Neunfunf <- subgraph.edges(kubarevolution, E(kubarevolution)[year=="1959"])
+
+
+plot(Neunfunf,
+     asp=0,
+     layout=layout_with_kk,
+     rescale=TRUE,
+     vertex.frame.color="black",
+     edge.arrow.size=.5,
+     main="Teilnetzwerk 1959")
+
+
+```
+
 ```{r Ego-Netzwerk Bolivien}
 
 network_bov <- make_ego_graph(kubarevolution, order = 1, nodes = V(kubarevolution)$name=="Bolivien", mode="all")
@@ -176,13 +298,12 @@ network_bov_1 <- network_bov[[1]]
 
 plot(network_bov_1, 
      main="Ego-Netzwerk Bolivien, erster Grad",
-     vertex.color="deeppink",
-     edge.color="black",
      edge.arrow.size=.3,
      sub="Wer war in Bolivien?")
 
 
 ```
+
 
 ```{r Ego-Netzwerk Chile}
 
@@ -194,8 +315,6 @@ network_chi_1 <- network_chi[[1]]
 
 plot(network_chi_1, 
      main="Ego-Netzwerk Chile, erster Grad",
-     vertex.color="gold",
-     edge.color="black",
      edge.arrow.size=.3,
      sub="Wer war in Chile?")
 
@@ -212,8 +331,6 @@ network_gua_1 <- network_gua[[1]]
 
 plot(network_gua_1, 
      main="Ego-Netzwerk Guatemala, erster Grad",
-     vertex.color="gold",
-     edge.color="black",
      edge.arrow.size=.3,
      sub="Wer war in Guatemala?")
 
