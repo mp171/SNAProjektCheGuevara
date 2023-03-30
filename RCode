@@ -132,7 +132,7 @@ plot(kubarevolution,
 
 ```
 
-## Teilnetzwerk
+## Teilnetzwerke
 
 ```{r Teilnetzwerk Familie}
 
@@ -287,6 +287,7 @@ plot(Neunfunf,
 
 
 ```
+##Ego-Netzwerke
 
 ```{r Ego-Netzwerk Bolivien}
 
@@ -336,3 +337,19 @@ plot(network_gua_1,
 
 
 ```
+
+```{r Ego-Netzwerk Mexiko}
+
+network_mex <- make_ego_graph(kubarevolution, order = 1, nodes = V(kubarevolution)$name=="Mexiko", mode="all")
+
+network_mex
+
+network_mex_1 <- network_mex[[1]]
+
+plot(network_mex_1, 
+     main="Ego-Netzwerk Mexiko, erster Grad",
+     edge.arrow.size=.3,
+     sub="Wer war alles in Mexiko")
+
+```
+
