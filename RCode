@@ -9,13 +9,13 @@ output: html_document
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
-Codebuch
+# Das Projekt: Che Guevara und die kubanische Revolution
 
 Wir untersuchen das Gesamtnetzwerk der kubanischen Revolution. Unsere Forschungsfrage lautet:
 "Che Guevara war das Gesicht der kubanischen Revolution. 
 Welchen Platz nimmt er im Gesamtnetzwerk der Bewegung des 26. Juli ein und wie sind andere Länder und Gesellschaftssektoren involviert?"
 
-##Edgelist
+## Edgelist
 
 Beziehungen sind nicht gewichtet und nicht gerichtet.
 						
@@ -32,11 +32,11 @@ Mögliche Beziehungstypen (über "relation" festgelegt):
 Der Zeitpunkt der Beziehung wird in der Spalte "Year" festgelegt. Es wird festgehalten, in welchem Jahr eine Beziehung eingegangen wurde. Bei Änderung der Beziehung wird eine neue Kante definiert mit der neuen Beziehungsart und Beziehungszeitpunkt.
 Sollten Beziehungen vor Beginn unserer Datenerhebung eingegangen worden sein, wird dies nicht definiert. Sollten Beziehungen sich über den gesamten Erhegungszeitraum nicht verändern, wird dies ebenfalls nicht definiert und mit 0 gekennzeichnet.
 						
-##Nodelist
+## Nodelist
 
 Um fehlerhafte Anzeigen zu vermeiden, werden keine Sonderzeichen verwendet. Namen müssen somit ohne Akzente geschrieben werden. 
 												
-###Types					
+### Types					
 						
 Person
 Organisation 
@@ -44,7 +44,7 @@ Land
 
 Es gibt drei verschiedene Arten von Knoten, die mit "types" unterschieden werden: Personen, Organisationen oder Länder.
 						
-###Sectors	
+### Sectors	
 
 Militär						
 Politik						
@@ -63,27 +63,26 @@ Landwirtschaft
 
 Knoten werden in verschiedene Teile der Gesellschaft geteilt, die in der Spalte "sectors" festgelegt werden. Bei Personen und Organisationen werden 14 verschiedene Sektoren unterschieden, die oben aufgelistet sind. Bei Personen werden Arbeitsverhältnisse oder Ausbildung vor dem Anschluss zum Widerstand notiert. Wenn das nicht bekannt ist, wird die Person dem Sektor Widerstand zugeordnet.   
 Bei Ländern wird der Sektor als Land notiert.
-						
-						
-##Projektmanagement
 
-Wir arbeiten mit der Vorlage für einen Projekt-Backlog von Lars Rinsdorf. Der Link zum Projektlog ist hier zu finden: https://docs.google.com/spreadsheets/d/1aVolX0rD4p-sPcQ3oNIEUTo5ZA23BJFK/edit?usp=sharing&ouid=103775396014785397767&rtpof=true&sd=true
-						
+## Projektmanagement
+
+Wir arbeiten mit der Vorlage für einen Projekt-Backlog von Lars Rinsdorf. Der Link zum Projektlog ist hier zu finden: https://docs.google.com/spreadsheets/d/1aVolX0rD4p-sPcQ3oNIEUTo5ZA23BJFK/edit?usp=sharing&ouid=103775396014785397767&rtpof=true&sd=true			
 
 ## Netzwerk einlesen
 
 ```{r Netzwerk einlesen}
-# Programmbibliothek laden
+
+### Programmbibliothek laden
 library(igraph)
 
-# Einlesen der Edge- und Nodelist
+### Einlesen der Edge- und Nodelist
 edges <- read.csv("https://raw.githubusercontent.com/mp171/SNAProjektCheGuevara/main/EdgelistKuba.csv", header=T, as.is=T, sep = ",")
 nodes <- read.csv("https://raw.githubusercontent.com/mp171/SNAProjektCheGuevara/main/NodelistKuba.csv", header=T, as.is=T, sep = ",")
 
-# Matrix erstellen
+### Matrix erstellen
 edgematrix <-as.matrix(edges)
 
-# Zusammenführen von Edge- und Nodelist
+### Zusammenführen von Edge- und Nodelist
 kubarevolution <- graph_from_data_frame(d=edgematrix, vertices=nodes, directed=T)
 
 ```
@@ -92,7 +91,7 @@ kubarevolution <- graph_from_data_frame(d=edgematrix, vertices=nodes, directed=T
 
 ```{r Einfache Visualisierung des Netzwerks, fig.height=5, fig.width=9}
 
-# Farben festlegen
+### Farben festlegen
 
 V(kubarevolution)[V(kubarevolution)$sector == "Militaer"]$color <- "firebrick3"
 V(kubarevolution)[V(kubarevolution)$sector == "Politik"]$color <- "deepskyblue"
@@ -110,7 +109,6 @@ V(kubarevolution)[V(kubarevolution)$sector == "Wirtschaft"]$color <- "mediumorch
 V(kubarevolution)[V(kubarevolution)$sector == "Land"]$color <- "orange"
 V(kubarevolution)[V(kubarevolution)$sector == "Landwirtschaft"]$color <- "green"
 
-
 E(kubarevolution)[E(kubarevolution)$relation == 1]$color <-"darkorange"
 E(kubarevolution)[E(kubarevolution)$relation == 2]$color <-"red"
 E(kubarevolution)[E(kubarevolution)$relation == 3]$color <-"blue"
@@ -119,7 +117,6 @@ E(kubarevolution)[E(kubarevolution)$relation == 5]$color <-"chocolate"
 E(kubarevolution)[E(kubarevolution)$relation == 6]$color <-"darkorchid"
 E(kubarevolution)[E(kubarevolution)$relation == 7]$color <-"darkslategray"
 
-
 plot(kubarevolution,
      asp=0,
      layout=layout_with_kk,
@@ -127,8 +124,7 @@ plot(kubarevolution,
      vertex.frame.color="black",
      edge.arrow.size=.5,
      main="Kubanische Revolution Gesamtnetzwerk")
-
-
+     
 ```
 
 ## Teilnetzwerke
@@ -144,6 +140,7 @@ plot(Familie,
      vertex.frame.color="black",
      edge.arrow.size=.5,
      main="Teilnetzwerk Familie")
+     
 ```
 
 ```{r Teilnetzwerk Liebe}
@@ -157,12 +154,12 @@ plot(Love,
      vertex.frame.color="black",
      edge.arrow.size=.5,
      main="Teilnetzwerk Liebesbeziehungen")
+     
 ```
 
 ```{r Teilnetzwerk 1952}
 
 Zweifunf <- subgraph.edges(kubarevolution, E(kubarevolution)[year=="1952"])
-
 
 plot(Zweifunf,
      asp=0,
@@ -171,14 +168,12 @@ plot(Zweifunf,
      vertex.frame.color="black",
      edge.arrow.size=.5,
      main="Teilnetzwerk 1952")
-
-
+     
 ```
 
 ```{r Teilnetzwerk 1953}
 
 Dreifunf <- subgraph.edges(kubarevolution, E(kubarevolution)[year=="1953"])
-
 
 plot(Dreifunf,
      asp=0,
@@ -187,14 +182,12 @@ plot(Dreifunf,
      vertex.frame.color="black",
      edge.arrow.size=.5,
      main="Teilnetzwerk 1953")
-
-
+     
 ```
 
 ```{r Teilnetzwerk 1954}
 
 Vierfunf <- subgraph.edges(kubarevolution, E(kubarevolution)[year=="1954"])
-
 
 plot(Vierfunf,
      asp=0,
@@ -203,14 +196,12 @@ plot(Vierfunf,
      vertex.frame.color="black",
      edge.arrow.size=.5,
      main="Teilnetzwerk 1954")
-
-
+     
 ```
 
 ```{r Teilnetzwerk 1955}
 
 Funffunf <- subgraph.edges(kubarevolution, E(kubarevolution)[year=="1955"])
-
 
 plot(Funffunf,
      asp=0,
@@ -219,14 +210,12 @@ plot(Funffunf,
      vertex.frame.color="black",
      edge.arrow.size=.5,
      main="Teilnetzwerk 1955")
-
-
+     
 ```
 
 ```{r Teilnetzwerk 1956}
 
 Sechsfunf <- subgraph.edges(kubarevolution, E(kubarevolution)[year=="1956"])
-
 
 plot(Sechsfunf,
      asp=0,
@@ -235,14 +224,12 @@ plot(Sechsfunf,
      vertex.frame.color="black",
      edge.arrow.size=.5,
      main="Teilnetzwerk 1956")
-
-
+     
 ```
 
 ```{r Teilnetzwerk 1957}
 
 Siebenfunf <- subgraph.edges(kubarevolution, E(kubarevolution)[year=="1957"])
-
 
 plot(Siebenfunf,
      asp=0,
@@ -251,14 +238,12 @@ plot(Siebenfunf,
      vertex.frame.color="black",
      edge.arrow.size=.5,
      main="Teilnetzwerk 1957")
-
-
+     
 ```
 
 ```{r Teilnetzwerk 1958}
 
-Achtfunf <- subgraph.edges(kubarevolution, E(kubarevolution)[year=="1958"])
-
+Achtfunf <- subgraph.edges(kubarevolution, E(kubarevolution)[year=="1958"]
 
 plot(Achtfunf,
      asp=0,
@@ -267,14 +252,12 @@ plot(Achtfunf,
      vertex.frame.color="black",
      edge.arrow.size=.5,
      main="Teilnetzwerk 1958")
-
-
+     
 ```
 
 ```{r Teilnetzwerk 1959}
 
 Neunfunf <- subgraph.edges(kubarevolution, E(kubarevolution)[year=="1959"])
-
 
 plot(Neunfunf,
      asp=0,
@@ -283,10 +266,9 @@ plot(Neunfunf,
      vertex.frame.color="black",
      edge.arrow.size=.5,
      main="Teilnetzwerk 1959")
-
-
+     
 ```
-##Ego-Netzwerke
+## Ego-Netzwerke
 
 ```{r Ego-Netzwerk Bolivien}
 
@@ -300,10 +282,8 @@ plot(network_bov_1,
      main="Ego-Netzwerk Bolivien, erster Grad",
      edge.arrow.size=.3,
      sub="Wer war in Bolivien?")
-
-
+     
 ```
-
 
 ```{r Ego-Netzwerk Chile}
 
@@ -317,8 +297,7 @@ plot(network_chi_1,
      main="Ego-Netzwerk Chile, erster Grad",
      edge.arrow.size=.3,
      sub="Wer war in Chile?")
-
-
+     
 ```
 
 ```{r Ego-Netzwerk Guatemala}
@@ -333,8 +312,7 @@ plot(network_gua_1,
      main="Ego-Netzwerk Guatemala, erster Grad",
      edge.arrow.size=.3,
      sub="Wer war in Guatemala?")
-
-
+     
 ```
 
 ```{r Ego-Netzwerk Mexiko}
@@ -349,24 +327,21 @@ plot(network_mex_1,
      main="Ego-Netzwerk Mexiko, erster Grad",
      edge.arrow.size=.3,
      sub="Wer war alles in Mexiko")
-
 ```
 
-##Ideen für Visualisierungen
+## Ideen für Visualisierungen
 
 Eine Idee zur Visualisierung sind Balkendiagramme um die Verteilung der beteiligten gesellschaftlichen Sektoren (Militär, Medizin, Politik,etc.) darzustellen.
-
 Darüberhinaus können wir uns Landkarten Lateinamerikas vorstellen, in welchen die Einflussgebiete Che Guevaras und der Bewegung des 26.Julis visualisiert werden.
 
+## Ideen Abschlusspräsentation und Edit-Beitrag
 
-##Ideen Abschlusspräsentation und Edit-Beitrag
 Unsere Forschungsfrage beinhaltet explizit die Beteiligung an der Revolution von mehreren Ländern und Gesellschaftssektoren. Das hat uns im Laufe der Untersuchung gezeigt: Eine weitreichende, nachhaltige Veränderung einer Gesellschaft braucht eben diese Zusammenarbeit vieler verschiedener Menschen. Wir werden diese Entwicklung der Revolution zeigen, indem wir darstellen, wie sich zwischen den Akteuren im Laufe der Jahre ein weites Netzwerk aufspannt.
 Abgesehen davon werden wir selbstverständlich auch über den Verlauf unserer Forschung mitsamt Datenerhebung und -bereinigung, Interpretation und Visualisierung berichten, sowie Learnings für kommende Projekte festhalten.
-
 Im Edit-Beitrag werden wir die Figur Che Guevara kritisch hinterfragen. Er war und ist das Gesicht der Kubanischen Revolution. Doch liegt das wirklich an seiner zentralen Rolle innerhalb des Netzwerkes? Die Daten können hier mit Netzwerk- und Zentralitätsmaßen eine Antwort liefern. Spoiler: Grund für Ches Popularität ist eher nicht sein Handeln in der Bewegung des 26. Julis. Woher also kommt diese Heroisierung? In unserem Edit-Beitrag sollen verschiedene Erklärungsversuche thematisiert werden.
 
+## Workload bis jetzt
 
-##Workload bis jetzt
 AKtuell beträgt der Workload unserer Gruppe 60 Stunden.
 Die Daten sind aus unserem Backlog entnommen und dort nachzulesen.
 
