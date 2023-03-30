@@ -1,7 +1,7 @@
 ---
 title: "Che Guava"
-author: "Maria Petalidou, Franziska Weber, Lisa Conzelmann"
-date: "19 Januar 2023"
+author: "Franziska Weber, Lisa Conzelmann, Maria Petalidou"
+date: "30 März 2023"
 output: html_document
 ---
 
@@ -67,7 +67,7 @@ Bei Ländern wird der Sektor als Land notiert.
 						
 ##Projektmanagement
 
-Wir arbeiten mit der Vorlage für einen Projekt-Backlog von Lars Rinsdorf. Der Link zum Projektlog ist hier: https://docs.google.com/spreadsheets/d/1aVolX0rD4p-sPcQ3oNIEUTo5ZA23BJFK/edit?usp=sharing&ouid=103775396014785397767&rtpof=true&sd=true
+Wir arbeiten mit der Vorlage für einen Projekt-Backlog von Lars Rinsdorf. Der Link zum Projektlog ist hier zu finden: https://docs.google.com/spreadsheets/d/1aVolX0rD4p-sPcQ3oNIEUTo5ZA23BJFK/edit?usp=sharing&ouid=103775396014785397767&rtpof=true&sd=true
 						
 
 ## Netzwerk einlesen
@@ -78,13 +78,12 @@ library(igraph)
 
 # Einlesen der Edge- und Nodelist
 edges <- read.csv("https://raw.githubusercontent.com/mp171/SNAProjektCheGuevara/main/EdgelistKuba.csv", header=T, as.is=T, sep = ",")
-
 nodes <- read.csv("https://raw.githubusercontent.com/mp171/SNAProjektCheGuevara/main/NodelistKuba.csv", header=T, as.is=T, sep = ",")
 
 # Matrix erstellen
 edgematrix <-as.matrix(edges)
 
-# Zusammenfuehren von Edge- und Nodelist
+# Zusammenführen von Edge- und Nodelist
 kubarevolution <- graph_from_data_frame(d=edgematrix, vertices=nodes, directed=T)
 
 ```
@@ -355,23 +354,21 @@ plot(network_mex_1,
 
 ##Ideen für Visualisierungen
 
-Balkendiagramme für Sektoren(Militär, Medizin, Politik,etc.)
+Eine Idee zur Visualisierung sind Balkendiagramme um die Verteilung der beteiligten gesellschaftlichen Sektoren (Militär, Medizin, Politik,etc.) darzustellen.
 
-Einflussgebiete Che Guevara, Bewegung 26.Juli , Landkarte von Südamerika
-
-
-##Offene Fragen?
-
--> Für uns ist alles klar.
+Darüberhinaus können wir uns Landkarten Lateinamerikas vorstellen, in welchen die Einflussgebiete Che Guevaras und der Bewegung des 26.Julis visualisiert werden.
 
 
-##Ideen Edit Beitrag/Präsentation
+##Ideen Abschlusspräsentation und Edit-Beitrag
+Unsere Forschungsfrage beinhaltet explizit die Beteiligung an der Revolution von mehreren Ländern und Gesellschaftssektoren. Das hat uns im Laufe der Untersuchung gezeigt: Eine weitreichende, nachhaltige Veränderung einer Gesellschaft braucht eben diese Zusammenarbeit vieler verschiedener Menschen. Wir werden diese Entwicklung der Revolution zeigen, indem wir darstellen, wie sich zwischen den Akteuren im Laufe der Jahre ein weites Netzwerk aufspannt.
+Abgesehen davon werden wir selbstverständlich auch über den Verlauf unserer Forschung mitsamt Datenerhebung und -bereinigung, Interpretation und Visualisierung berichten, sowie Learnings für kommende Projekte festhalten.
 
+Im Edit-Beitrag werden wir die Figur Che Guevara kritisch hinterfragen. Er war und ist das Gesicht der Kubanischen Revolution. Doch liegt das wirklich an seiner zentralen Rolle innerhalb des Netzwerkes? Die Daten können hier mit Netzwerk- und Zentralitätsmaßen eine Antwort liefern. Spoiler: Grund für Ches Popularität ist eher nicht sein Handeln in der Bewegung des 26. Julis. Woher also kommt diese Heroisierung? In unserem Edit-Beitrag sollen verschiedene Erklärungsversuche thematisiert werden.
 
 
 ##Workload bis jetzt
-AKtuell beträgt der Workload unserer Gruppe 52 Stunden.
-Daten sind aus unserem Backlog entnommen.
+AKtuell beträgt der Workload unserer Gruppe 60 Stunden.
+Die Daten sind aus unserem Backlog entnommen und dort nachzulesen.
 
 
 
