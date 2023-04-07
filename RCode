@@ -342,6 +342,24 @@ plot(network_kub_1,
      edge.arrow.size=.3,
      sub="Wer war alles in Kuba")
 ```
+##Ego Netzwerk des 26.Julis
+
+```{r Ego-Netzwerk Bewegung des 26. Juli}
+
+network_b26j <- make_ego_graph(kubarevolution, order = 1, nodes = V(kubarevolution)$name=="Bewegung des 26. Juli", mode="all")
+
+network_b26j
+
+network_b26j_1 <- network_b26j[[1]]
+
+plot(network_b26j_1, 
+     main="Ego-Netzwerk Bewegung des 26. Juli, erster Grad",
+     edge.arrow.size=.3,
+     sub="Wer war alles an der Bewegung des 26. Juli beteiligt?")
+```
+
+
+
 ## Ideen für Visualisierungen
 
 Eine Idee zur Visualisierung sind Balkendiagramme um die Verteilung der beteiligten gesellschaftlichen Sektoren (Militär, Medizin, Politik,etc.) darzustellen.
