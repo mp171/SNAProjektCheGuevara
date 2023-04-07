@@ -329,6 +329,19 @@ plot(network_mex_1,
      sub="Wer war alles in Mexiko")
 ```
 
+```{r Ego-Netzwerk Kuba}
+
+network_kub <- make_ego_graph(kubarevolution, order = 1, nodes = V(kubarevolution)$name=="Kuba", mode="all")
+
+network_kub
+
+network_kub_1 <- network_kub[[1]]
+
+plot(network_kub_1, 
+     main="Ego-Netzwerk Kuba, erster Grad",
+     edge.arrow.size=.3,
+     sub="Wer war alles in Kuba")
+```
 ## Ideen für Visualisierungen
 
 Eine Idee zur Visualisierung sind Balkendiagramme um die Verteilung der beteiligten gesellschaftlichen Sektoren (Militär, Medizin, Politik,etc.) darzustellen.
