@@ -10,13 +10,13 @@ Beziehungen sind nicht gewichtet und nicht gerichtet.
 						
 Mögliche Beziehungstypen (über "relation" festgelegt):						
 						
-1 = Unterstützer
-2 = Anführer				
-3 = Liebesbeziehung			
-4 = Gegenspieler				
-5 = Bekanntschaft						
-6 = Aufenthalt
-7 = Familie
+1 = Unterstützer (mit der Pfeilfarbe Orange dargestellt)
+2 = Anführer (mit der Pfeilfarbe Rot dargestellt)		
+3 = Liebesbeziehung (mit der Pfeilfarbe Blau dargestellt)		
+4 = Gegenspieler (mit der Pfeilfarbe Braun dargestellt)			
+5 = Bekanntschaft (mit der Pfeilfarbe Pink dargestellt)					
+6 = Aufenthalt (mit der Pfeilfarbe Lila dargestellt)
+7 = Familie (mit der Pfeilfarbe Graublau dargestellt)
 
 Der Zeitpunkt der Beziehung wird in der Spalte "Year" festgelegt. Es wird festgehalten, in welchem Jahr eine Beziehung eingegangen wurde. Bei Änderung der Beziehung wird eine neue Kante definiert mit der neuen Beziehungsart und Beziehungszeitpunkt.
 Sollten Beziehungen vor Beginn unserer Datenerhebung eingegangen worden sein, wird dies nicht definiert. Sollten Beziehungen sich über den gesamten Erhegungszeitraum nicht verändern, wird dies ebenfalls nicht definiert und mit NA gekennzeichnet.
@@ -35,24 +35,26 @@ Im weiteren Verlauf der Arbeit werden die verschiedenen Typen ergänzt und ander
 						
 ###Sectors	
 
-Militär						
-Politik						
-Widerstand 			
-Medien
-Medizin
-Wissenschaft
-Judikative
-Bildung
-Handwerk
-Architektur
-Musik
-Wirtschaft
-Kirche
+Militär	(mit Knotenfarbe Dunkelrot dargestellt)					
+Politik	(mit Knotenfarbe Himmelblau dargestellt)					
+Widerstand (mit Knotenfarbe Hellrot dargestellt)			
+Medien (mit Knotenfarbe Gelb dargestellt)
+Medizin (mit Knotenfarbe Hellblau dargestellt)
+Wissenschaft (mit Knotenfarbe Hellgrün dargestellt)
+Judikative (mit Knotenfarbe Gold dargestellt)
+Bildung (mit Knotenfarbe Hellrosa dargestellt)
+Handwerk (mit Knotenfarbe Grau dargestellt)
+Architektur (mit Knotenfarbe Creme dargestellt)
+Musik (mit Knotenfarbe Pink dargestellt)
+Wirtschaft (mit Knotenfarbe Lila dargestellt)
+Kirche (mit Knotenfarbe Dunkelgrün dargestellt)
+Landwirtschaft (mit Knotenfarbe Grün dargestellt)
+
+Länder werden in Orange dargestellt.
 
 Im weiteren Verlauf der Arbeit werden die verschiedenen Sektoren ergänzt und anders visualisiert.	
 						
 ##Projektmanagement
 
 Wir arbeiten mit der Vorlage für einen Projekt-Backlog von Lars Rinsdorf. Der Link zum Projektlog ist hier: https://docs.google.com/spreadsheets/d/1aVolX0rD4p-sPcQ3oNIEUTo5ZA23BJFK/edit?usp=sharing&ouid=103775396014785397767&rtpof=true&sd=true
-						
 						
