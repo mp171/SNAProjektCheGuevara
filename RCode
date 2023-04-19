@@ -86,8 +86,9 @@ edgematrix <-as.matrix(edges)
 kubarevolution <- graph_from_data_frame(d=edgematrix, vertices=nodes, directed=T)
 
 ```
+#Gesamtnetzwerk
 
-## Datensatz vorbereiten
+###Visualisierungen und Ausgabe
 
 ```{r Einfache Visualisierung des Netzwerks, fig.height=5, fig.width=9}
 
@@ -126,8 +127,90 @@ plot(kubarevolution,
      main="Kubanische Revolution Gesamtnetzwerk")
      
 ```
+###Maße, Dichte, Betweensess Gesamtnetzwerk
 
-## Teilnetzwerke
+```{r Beschreibung des Netzwerks}
+# Parameter zu Beschreibung des Netzwerks
+
+## ist das Netzwerk bereits vereinfacht?
+is.simple(kubarevolution)
+
+## besteht das Netzwerk aus Komponenten?
+## wenn ja, wie vielen?
+is.connected(kubarevolution)
+components(kubarevolution)
+
+## Dichte des Netzwerks
+edge_density(kubarevolution, loops=FALSE)
+
+## Umfang des Netzwerks
+diameter(kubarevolution)
+
+## Pfaddistanzen (Distance)
+farthest_vertices(kubarevolution)
+```
+
+
+```{r Betweness}
+## Betweenness-Zentralität(Betweness)
+betw <- betweenness(kubarevolution)
+# Berechnung der Betweenness-Zentralität
+betw <- betweenness(kubarevolution)
+
+# Sortieren nach der Höhe der Betweenness-Zentralität
+sorted_betw <- sort(betw, decreasing = TRUE)
+
+# Berechne die Betwenness-Zentralität für alle Knoten im Netzwerk
+bet <- betweenness(kubarevolution)
+
+# Erstelle eine Tabelle mit den Knotennamen und ihren Betwenness-Werten
+bet_df <- data.frame(Node = names(bet), Betweenness = bet)
+
+# Sortiere die Tabelle nach Betwenness absteigend
+bet_df <- bet_df[order(-bet_df$Betweenness),]
+
+# Gib die Tabelle aus
+print(bet_df)
+```
+
+###Sektoren Visualisierung
+```{r Gesamtnetzwerk Sektoren}
+
+# Liste der Sektoren im Netzwerk
+sector_list <- unique(nodes$sector)
+
+# Anzahl der Knoten pro Sektor
+sector_counts <- table(nodes$sector)
+
+# Erstelle einen Vektor mit den Farben der Sektoren
+sector_colors <- c(Militaer = "firebrick3", 
+                   Politik = "deepskyblue", 
+                   Widerstand = "indianred1", 
+                   Medien = "gold", 
+                   Medizin = "azure", 
+                   Wissenschaft = "chartreuse3", 
+                   Judikative = "darkgoldenrod1", 
+                   Bildung = "lightpink1", 
+                   Handwerk = "lightsteelblue4", 
+                   Architektur = "navajowhite", 
+                   Musik = "deeppink", 
+                   Kirche = "darkolivegreen", 
+                   Wirtschaft = "mediumorchid3", 
+                   Land = "orange", 
+                   Landwirtschaft = "green")
+
+# Balkendiagramm erstellen und Farben zuweisen
+barplot(sector_counts, 
+        main = "Anzahl der Knoten pro Sektor", 
+        xlab = "Sektoren", 
+        ylab = "Anzahl der Knoten", 
+        col = sector_colors)
+
+```
+
+#Teilnetzwerke
+
+###Demographische Daten
 
 ```{r Teilnetzwerk Familie}
 
@@ -156,6 +239,7 @@ plot(Love,
      main="Teilnetzwerk Liebesbeziehungen")
      
 ```
+###Entwicklung Jahre
 
 ```{r Teilnetzwerk 1952}
 
@@ -254,21 +338,7 @@ plot(Achtfunf,
      main="Teilnetzwerk 1958")
      
 ```
-
-```{r Teilnetzwerk 1959}
-
-Neunfunf <- subgraph.edges(kubarevolution, E(kubarevolution)[year=="1959"])
-
-plot(Neunfunf,
-     asp=0,
-     layout=layout_with_kk,
-     rescale=TRUE,
-     vertex.frame.color="black",
-     edge.arrow.size=.5,
-     main="Teilnetzwerk 1959")
-     
-```
-## Ego-Netzwerke
+#Ego-Netzwerke Länder
 
 ```{r Ego-Netzwerk Bolivien}
 
@@ -342,23 +412,73 @@ plot(network_kub_1,
      edge.arrow.size=.3,
      sub="Wer war alles in Kuba")
 ```
-##Ego Netzwerk des 26.Julis
+
+#Alle Netzwerke zur Bewegung des 26.Juli
+###Erstellung des Ego-Netzwerks
 
 ```{r Ego-Netzwerk Bewegung des 26. Juli}
-
+#Erstellung des Ego-Netzwerks
 network_b26j <- make_ego_graph(kubarevolution, order = 1, nodes = V(kubarevolution)$name=="Bewegung des 26. Juli", mode="all")
 
 network_b26j
 
 network_b26j_1 <- network_b26j[[1]]
 
+#Ausgeben im Plot
 plot(network_b26j_1, 
      main="Ego-Netzwerk Bewegung des 26. Juli, erster Grad",
      edge.arrow.size=.3,
      sub="Wer war alles an der Bewegung des 26. Juli beteiligt?")
+
 ```
 
+###Involvierte Sektoren der Bewegung des 26.Juli
 
+```{r Ego-Netzwerk Bewegung des 26. Juli node names}
+#Zur Überprüfung ob es sich um die korrekte Anzahl an involvierten nodes handelt, sind im folgenden Chunk die Nodes namentlich ausgelistet und die Gesamtanzahl vom 74 nodes wurde ausgerechet.
+
+#Namen der Knoten im Ego-Netzwerk
+node_names <- names(V(network_b26j_1))
+cat("Folgende Knoten sind im Ego-Netzwerk Bewegung des 26. Juli, erster Grad, enthalten:\n")
+cat(node_names, "\n")
+cat("Anzahl der Knoten im Ego-Netzwerk: ", length(node_names), "\n")
+
+```
+
+```{r Ego-Netzwerk Bewegung des 26. Juli Sektoren}
+#Dieser Chunk zeigt die Aufteilung der Sektoren im Ego-NEtzwerk der Bewegung des 26.Juli
+
+#Ego-Netzwerk erstellen
+network_b26j <- make_ego_graph(kubarevolution, order = 1, nodes = V(kubarevolution)$name=="Bewegung des 26. Juli", mode="all")
+network_b26j_1 <- network_b26j[[1]]
+
+#Sektoren im Ego-Netzwerk zählen
+sector_counts <- table(V(network_b26j_1)$sector)
+# Erstelle einen Vektor mit den Farben der Sektoren
+sector_colors <- c(Militaer = "firebrick3", 
+                   Politik = "deepskyblue", 
+                   Widerstand = "indianred1", 
+                   Medien = "gold", 
+                   Medizin = "azure", 
+                   Wissenschaft = "chartreuse3", 
+                   Judikative = "darkgoldenrod1", 
+                   Bildung = "lightpink1", 
+                   Handwerk = "lightsteelblue4", 
+                   Architektur = "navajowhite", 
+                   Musik = "deeppink", 
+                   Kirche = "darkolivegreen", 
+                   Wirtschaft = "mediumorchid3", 
+                   Land = "orange", 
+                   Landwirtschaft = "green")
+
+# Balkendiagramm erstellen und Farben zuweisen
+barplot(sector_counts, 
+        main = "Sektoren im Ego-Netzwerk Bewegung des 26. Juli, erster Grad", 
+        xlab = "Sektoren", 
+        ylab = "Anzahl der Knoten", 
+        col = sector_colors)
+
+```
 
 ## Ideen für Visualisierungen
 
