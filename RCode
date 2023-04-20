@@ -160,51 +160,29 @@ betw <- betweenness(kubarevolution)
 # Sortieren nach der Höhe der Betweenness-Zentralität
 sorted_betw <- sort(betw, decreasing = TRUE)
 
-# Berechne die Betwenness-Zentralität für alle Knoten im Netzwerk
+# Berechnet die Betwenness-Zentralität für alle Knoten im Netzwerk
 bet <- betweenness(kubarevolution)
 
-# Erstelle eine Tabelle mit den Knotennamen und ihren Betwenness-Werten
+# Erstellet eine Tabelle mit den Knotennamen und ihren Betwenness-Werten
 bet_df <- data.frame(Node = names(bet), Betweenness = bet)
 
-# Sortiere die Tabelle nach Betwenness absteigend
+# Sortiert die Tabelle nach Betwenness absteigend
 bet_df <- bet_df[order(-bet_df$Betweenness),]
 
-# Gib die Tabelle aus
+# Gibt die Tabelle aus
 print(bet_df)
 ```
 
 ###Sektoren Visualisierung
+
 ```{r Gesamtnetzwerk Sektoren}
 
 # Liste der Sektoren im Netzwerk
 sector_list <- unique(nodes$sector)
 
-# Anzahl der Knoten pro Sektor
-sector_counts <- table(nodes$sector)
+sector_count <- table(nodes$sector)
 
-# Erstelle einen Vektor mit den Farben der Sektoren
-sector_colors <- c(Militaer = "firebrick3", 
-                   Politik = "deepskyblue", 
-                   Widerstand = "indianred1", 
-                   Medien = "gold", 
-                   Medizin = "azure", 
-                   Wissenschaft = "chartreuse3", 
-                   Judikative = "darkgoldenrod1", 
-                   Bildung = "lightpink1", 
-                   Handwerk = "lightsteelblue4", 
-                   Architektur = "navajowhite", 
-                   Musik = "deeppink", 
-                   Kirche = "darkolivegreen", 
-                   Wirtschaft = "mediumorchid3", 
-                   Land = "orange", 
-                   Landwirtschaft = "green")
-
-# Balkendiagramm erstellen und Farben zuweisen
-barplot(sector_counts, 
-        main = "Anzahl der Knoten pro Sektor", 
-        xlab = "Sektoren", 
-        ylab = "Anzahl der Knoten", 
-        col = sector_colors)
+print(sector_count)
 
 ```
 
@@ -453,30 +431,9 @@ network_b26j <- make_ego_graph(kubarevolution, order = 1, nodes = V(kubarevoluti
 network_b26j_1 <- network_b26j[[1]]
 
 #Sektoren im Ego-Netzwerk zählen
-sector_counts <- table(V(network_b26j_1)$sector)
-# Erstelle einen Vektor mit den Farben der Sektoren
-sector_colors <- c(Militaer = "firebrick3", 
-                   Politik = "deepskyblue", 
-                   Widerstand = "indianred1", 
-                   Medien = "gold", 
-                   Medizin = "azure", 
-                   Wissenschaft = "chartreuse3", 
-                   Judikative = "darkgoldenrod1", 
-                   Bildung = "lightpink1", 
-                   Handwerk = "lightsteelblue4", 
-                   Architektur = "navajowhite", 
-                   Musik = "deeppink", 
-                   Kirche = "darkolivegreen", 
-                   Wirtschaft = "mediumorchid3", 
-                   Land = "orange", 
-                   Landwirtschaft = "green")
+sector_counts_b26j <- table(V(network_b26j_1)$sector)
 
-# Balkendiagramm erstellen und Farben zuweisen
-barplot(sector_counts, 
-        main = "Sektoren im Ego-Netzwerk Bewegung des 26. Juli, erster Grad", 
-        xlab = "Sektoren", 
-        ylab = "Anzahl der Knoten", 
-        col = sector_colors)
+print(sector_counts_b26j)
 
 ```
 
