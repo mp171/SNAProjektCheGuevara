@@ -436,6 +436,54 @@ sector_counts_b26j <- table(V(network_b26j_1)$sector)
 print(sector_counts_b26j)
 
 ```
+#Daten für Flourish vorbereiten
+
+###Um die Datensätze in Flourish einzulesen müssen diese erst einmal aufbereitet werden
+
+```{r Gesamtnetzwerk speichern}
+### Zusammenführen von Edge- und Nodelist
+write.csv(edgematrix, file = "kubarevolution.csv", row.names = FALSE)
+
+write.csv(edges, file = "nodes.csv", row.names = FALSE)
+
+write.csv(nodes, file = "edges.csv", row.names = FALSE)
+```
+
+```{r Tabelle Betweeness speichern}
+write.csv(bet_df, file = "bet_tabelle.csv", row.names = FALSE)
+```
+
+```{r Count Secors B26J speichern}
+write.csv(sector_counts_b26j, file = "sector_counts_b26j.csv", row.names = FALSE)
+```
+
+```{r Count Secors Gesammtnetzwerk speichern}
+write.csv(sector_count, file = "sector_counts_gesamtnetzwerk.csv", row.names = FALSE)
+```
+
+```{r Ego-Netzwerk B26J Flourish}
+
+# Ego-Netzwerk "network_b26j_1"
+nodes_b26j_1 <- as_data_frame(network_b26j_1)
+edges_b26j_1 <- as_data_frame(network_b26j_1, "edges")
+
+# Speichere Knotenliste des Ego-Netzwerks "network_b26j_1"
+write.csv(nodes_b26j_1, file = "ego_network_b26j_1_nodes.csv", row.names = FALSE)
+
+# Speichere Kantenliste des Ego-Netzwerks "network_b26j_1"
+write.csv(edges_b26j_1, file = "ego_network_b26j_1_edges.csv", row.names = FALSE)
+
+# Knoten und Edges einlesen
+nodes_b26j <- read.csv("ego_network_b26j_1_nodes.csv")
+edges_b26j <- read.csv("ego_network_b26j_1_edges.csv")
+
+library(dplyr)
+# Führen Sie Knoten- und Kantendaten zusammen
+network_b26j_1_data <- bind_rows(nodes_b26j, edges_b26j)
+
+# Speichern Sie die Daten als CSV-Datei
+write.csv(network_b26j_1_data, "network_b26j_1.csv", row.names = FALSE)
+```
 
 ## Ideen für Visualisierungen
 
