@@ -461,29 +461,60 @@ write.csv(sector_counts_b26j, file = "sector_counts_b26j.csv", row.names = FALSE
 write.csv(sector_count, file = "sector_counts_gesamtnetzwerk.csv", row.names = FALSE)
 ```
 
-```{r Ego-Netzwerk B26J Flourish}
 
-# Ego-Netzwerk "network_b26j_1"
-nodes_b26j_1 <- as_data_frame(network_b26j_1)
-edges_b26j_1 <- as_data_frame(network_b26j_1, "edges")
+```{r Ego-Netzwerk B26J Flourish speichern}
+# igraph Objekt "network_b26j_1" in einen Dataframe umwandeln um diese dann als CSV-Datei zu speichern
 
-# Speichere Knotenliste des Ego-Netzwerks "network_b26j_1"
-write.csv(nodes_b26j_1, file = "ego_network_b26j_1_nodes.csv", row.names = FALSE)
+# Netzwerk in Datenrahmen umwandeln
+edgelist <- as_data_frame(as_edgelist(network_b26j_1))
 
-# Speichere Kantenliste des Ego-Netzwerks "network_b26j_1"
-write.csv(edges_b26j_1, file = "ego_network_b26j_1_edges.csv", row.names = FALSE)
+vertices <- data.frame(id = V(network_b26j_1)$name)
 
-# Knoten und Edges einlesen
-nodes_b26j <- read.csv("ego_network_b26j_1_nodes.csv")
-edges_b26j <- read.csv("ego_network_b26j_1_edges.csv")
+nodes_df <- data.frame(id = V(network_b26j_1)$name)
+write.csv(nodes_df, "nodes_b26j_1.csv", row.names = FALSE)
 
-library(dplyr)
-# Führen Sie Knoten- und Kantendaten zusammen
-network_b26j_1_data <- bind_rows(nodes_b26j, edges_b26j)
+#Speichern
+edges_df <- get.data.frame(network_b26j_1, what = "edges")
+write.csv(edges_df, "edges_b26j_1.csv", row.names = FALSE)
 
-# Speichern Sie die Daten als CSV-Datei
-write.csv(network_b26j_1_data, "network_b26j_1.csv", row.names = FALSE)
 ```
+
+```{r Ego-Netzwerk Che Guevara Flourish speichern}
+# igraph Objekt "ego_net_che_1" in einen Dataframe umwandeln um diese dann als CSV-Datei zu speichern
+
+
+# Netzwerk in Datenrahmen umwandeln
+edgelist_che<- as_data_frame(as_edgelist(ego_net_che_1))
+
+# Knoten in Datenrahmen umwandeln
+vertices_che<- data.frame(id=V(ego_net_che_1)$name)
+
+# Nodelist speichern
+write.csv(vertices_che, "ego_net_che_1_nodes.csv", row.names = FALSE)
+
+#Speichern
+edges_che <- get.data.frame(ego_net_che_1, what = "edges")
+write.csv(edges_che, "ego_net_che_1_edges.csv", row.names = FALSE)
+```
+
+```{r Ego-Netzwerk Fidel Castro speichern}
+# igraph Objekt "edgelist_fica_1" in einen Dataframe umwandeln um diese dann als CSV-Datei zu speichern
+# Netzwerk in Datenrahmen umwandeln
+
+# Netzwerk in Datenrahmen umwandeln
+edgelist_fica_1 <- as_data_frame(as_edgelist(ego_net_fica_1))
+
+# Knoten in Datenrahmen umwandeln
+vertices_fica_1 <- data.frame(id=V(ego_net_fica_1)$name)
+
+# Nodelist speichern
+write.csv(vertices_fica_1, "ego_net_fica_1_nodes.csv", row.names = FALSE)
+
+# Kantenliste speichern
+edges_fica_1 <- get.data.frame(ego_net_fica_1, what = "edges")
+write.csv(edges_fica_1, "ego_net_fica_1_edges.csv", row.names = FALSE)
+```
+
 
 ## Ideen für Visualisierungen
 
@@ -500,8 +531,4 @@ Im Edit-Beitrag werden wir die Figur Che Guevara kritisch hinterfragen. Er war u
 
 AKtuell beträgt der Workload unserer Gruppe 60 Stunden.
 Die Daten sind aus unserem Backlog entnommen und dort nachzulesen.
-
-
-
-
 
