@@ -515,20 +515,3 @@ edges_fica_1 <- get.data.frame(ego_net_fica_1, what = "edges")
 write.csv(edges_fica_1, "ego_net_fica_1_edges.csv", row.names = FALSE)
 ```
 
-
-## Ideen für Visualisierungen
-
-Eine Idee zur Visualisierung sind Balkendiagramme um die Verteilung der beteiligten gesellschaftlichen Sektoren (Militär, Medizin, Politik,etc.) darzustellen.
-Darüberhinaus können wir uns Landkarten Lateinamerikas vorstellen, in welchen die Einflussgebiete Che Guevaras und der Bewegung des 26.Julis visualisiert werden.
-
-## Ideen Abschlusspräsentation und Edit-Beitrag
-
-Unsere Forschungsfrage beinhaltet explizit die Beteiligung an der Revolution von mehreren Ländern und Gesellschaftssektoren. Das hat uns im Laufe der Untersuchung gezeigt: Eine weitreichende, nachhaltige Veränderung einer Gesellschaft braucht eben diese Zusammenarbeit vieler verschiedener Menschen. Wir werden diese Entwicklung der Revolution zeigen, indem wir darstellen, wie sich zwischen den Akteuren im Laufe der Jahre ein weites Netzwerk aufspannt.
-Abgesehen davon werden wir selbstverständlich auch über den Verlauf unserer Forschung mitsamt Datenerhebung und -bereinigung, Interpretation und Visualisierung berichten, sowie Learnings für kommende Projekte festhalten.
-Im Edit-Beitrag werden wir die Figur Che Guevara kritisch hinterfragen. Er war und ist das Gesicht der Kubanischen Revolution. Doch liegt das wirklich an seiner zentralen Rolle innerhalb des Netzwerkes? Die Daten können hier mit Netzwerk- und Zentralitätsmaßen eine Antwort liefern. Spoiler: Grund für Ches Popularität ist eher nicht sein Handeln in der Bewegung des 26. Julis. Woher also kommt diese Heroisierung? In unserem Edit-Beitrag sollen verschiedene Erklärungsversuche thematisiert werden.
-
-## Workload bis jetzt
-
-AKtuell beträgt der Workload unserer Gruppe 60 Stunden.
-Die Daten sind aus unserem Backlog entnommen und dort nachzulesen.
-
