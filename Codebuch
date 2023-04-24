@@ -30,8 +30,6 @@ Um fehlerhafte Anzeigen zu vermeiden, werden keine Sonderzeichen verwendet. Name
 Person
 Organisation 
 Land
-
-Im weiteren Verlauf der Arbeit werden die verschiedenen Typen ergänzt und anders visualisiert.
 						
 ###Sectors	
 
@@ -50,9 +48,7 @@ Wirtschaft (mit Knotenfarbe Lila dargestellt)
 Kirche (mit Knotenfarbe Dunkelgrün dargestellt)
 Landwirtschaft (mit Knotenfarbe Grün dargestellt)
 
-Länder werden in Orange dargestellt.
-
-Im weiteren Verlauf der Arbeit werden die verschiedenen Sektoren ergänzt und anders visualisiert.	
+Länder werden in Orange dargestellt.	
 						
 ##Projektmanagement
 
