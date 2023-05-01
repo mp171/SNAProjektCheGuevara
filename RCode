@@ -127,6 +127,17 @@ plot(kubarevolution,
      main="Kubanische Revolution Gesamtnetzwerk")
      
 ```
+
+```{r Gesamtnetzwerk Vorkommen Beziehungen}
+#Welche “relation” kommt im Gesamtnetzwerk “kubarevolution” besonders häufig vor? 
+
+#Sortieren der relations
+rel_counts <- sort(table(E(kubarevolution)$relation), decreasing = TRUE)
+
+# Ergebnisse ausgeben
+print(rel_counts)
+```
+
 ###Maße, Dichte, Betweensess Gesamtnetzwerk
 
 ```{r Beschreibung des Netzwerks}
@@ -150,7 +161,6 @@ diameter(kubarevolution)
 farthest_vertices(kubarevolution)
 ```
 
-
 ```{r Betweness}
 ## Betweenness-Zentralität(Betweness)
 betw <- betweenness(kubarevolution)
@@ -173,16 +183,12 @@ bet_df <- bet_df[order(-bet_df$Betweenness),]
 print(bet_df)
 ```
 
-###Sektoren Visualisierung
+```{r Gesamtnetzwerk Anzahl Beziehungen}
+# Anzahl der Vorkommen von jedem Beziehungsattribute zählen und sortieren
+rel_counts <- sort(table(E(kubarevolution)$relation), decreasing = TRUE)
 
-```{r Gesamtnetzwerk Sektoren}
-
-# Liste der Sektoren im Netzwerk
-sector_list <- unique(nodes$sector)
-
-sector_count <- table(nodes$sector)
-
-print(sector_count)
+# Ergebnisse ausgeben
+print(rel_counts)
 
 ```
 
@@ -377,18 +383,87 @@ plot(network_mex_1,
      sub="Wer war alles in Mexiko")
 ```
 
-```{r Ego-Netzwerk Kuba}
-
+```{r Ego-Netzwerk Kuba, echo=FALSE}
+#Um die Anzahl der Knoten und Verbindungen zu bestimmen muss erst ein Ego-Netzwerk aus dem Datensatz kubarevolution entstehen
 network_kub <- make_ego_graph(kubarevolution, order = 1, nodes = V(kubarevolution)$name=="Kuba", mode="all")
 
 network_kub
 
 network_kub_1 <- network_kub[[1]]
 
+# Bestimmung der Anzahl von Knoten im Netzwerk
+num_nodes <- vcount(network_kub_1)
+print(paste("Anzahl der Knoten im Ego-Netzwerk:", num_nodes))
+
+# Bestimmung der Anzahl von Verbindungen im Netzwerk
+num_edges <- ecount(network_kub_1)
+print(paste("Anzahl der Verbindungen im Ego-Netzwerk:", num_edges))
+
+# Plot des Ego-Netzwerks
 plot(network_kub_1, 
      main="Ego-Netzwerk Kuba, erster Grad",
      edge.arrow.size=.3,
-     sub="Wer war alles in Kuba")
+     sub="Wer war im Zeitraum 1952-1959 in Kuba?",
+     legend="bottomright",
+     vertex.color=ifelse(V(network_kub_1)$name=="Kuba", "red", "gray"),
+     vertex.label.cex=0.8)
+     
+```
+
+#Ego-Netzwerke Personen
+##Che Guevara
+
+```{r Ego-Netzwerk Person Che Guevara, include=FALSE}
+library(igraph)
+# Erstelle ein Ego-Netzwerk mit dem Knoten "ECG"
+ego_net_che <- make_ego_graph(kubarevolution, nodes = V(kubarevolution)$name=="Ernesto Che Guevara", order = 1, mode = "all")
+
+# Plot erstellen
+ego_net_che_1 <- ego_net_che[[1]]
+
+# Um wichtige zentralitätsmaße zu bestimmen, erheben wir die Betweeness-Zentralität im Ego-Netzwerk.Dabei interessieren uns nur Werte über Null.
+bet_che <- betweenness(ego_net_che_1)
+bet_che_filtered <- bet_che[bet_che > 0]
+list(bet_che_filtered)
+
+# Wer war mit Che Guevara direkt verbunden?
+de_che<-degree(ego_net_che_1)
+de_che_filtered <- de_che[de_che > 0]
+list(de_che_filtered)
+
+plot(ego_net_che_1, 
+     main="Ego-Netzwerk Che Guevara, erster Grad",
+     edge.arrow.size=.1,
+     sub="Mit wem war Che Guevara verbunden")
+
+```
+
+```{r Ego-Netzwerk Sektoren Ego-Netzwerk Che Guevara}
+
+#Sektoren im Ego-Netzwerk zählen
+# Plot erstellen
+ego_net_che_1 <- ego_net_che[[1]]
+
+sector_counts_che <- sort(table(V(ego_net_che_1)$sector), decreasing =TRUE)
+
+print(sector_counts_che)
+```
+##Fidel Castro
+
+```{r Ego-Netzwerk Person Fidel Castro}
+library(igraph)
+# Erstelle ein Ego-Netzwerk mit dem Knoten "ECG"
+ego_net_fica <- make_ego_graph(kubarevolution, nodes = V(kubarevolution)$name=="Fidel Castro", order = 1, mode = "all")
+
+ego_net_fica_1 <- ego_net_fica[[1]]
+
+bet_fica <- betweenness(ego_net_fica_1)
+bet_fica_filtered <- bet_fica[bet_fica > 0]
+list(bet_fica_filtered)
+
+de_fica<-degree(ego_net_che_1)
+de_fica_filtered <- de_fica[de_fica > 0]
+list(de_fica_filtered)
 ```
 
 #Alle Netzwerke zur Bewegung des 26.Juli
@@ -407,6 +482,17 @@ plot(network_b26j_1,
      main="Ego-Netzwerk Bewegung des 26. Juli, erster Grad",
      edge.arrow.size=.3,
      sub="Wer war alles an der Bewegung des 26. Juli beteiligt?")
+
+```
+
+```{r Ego-Netzwerk Bewegung des 26. Juli node names}
+#Zur Überprüfung ob es sich um die korrekte Anzahl an involvierten nodes handelt, sind im folgenden Chunk die Nodes namentlich ausgelistet und die Gesamtanzahl vom 74 nodes wurde ausgerechet.
+
+#Namen der Knoten im Ego-Netzwerk
+node_names <- names(V(network_b26j_1))
+cat("Folgende Knoten sind im Ego-Netzwerk Bewegung des 26. Juli, erster Grad, enthalten:\n")
+cat(node_names, "\n")
+cat("Anzahl der Knoten im Ego-Netzwerk: ", length(node_names), "\n")
 
 ```
 
